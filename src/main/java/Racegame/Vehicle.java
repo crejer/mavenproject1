@@ -16,14 +16,14 @@ import java.util.ArrayList;
  */
 public abstract class Vehicle {
     
-    private Point2D.Float position = new Point2D.Float(); 
-    private Point2D.Float orientation = new Point2D.Float(); 
-    private Point2D.Float side = new Point2D.Float(); 
-    private Point2D.Float velocity = new Point2D.Float(); 
-    private Point2D.Float steering = new Point2D.Float(); 
-    private float mass; 
-    private float maxSpeed; 
-    private float maxSteering; 
+    protected Point2D.Float position = new Point2D.Float(); 
+    protected Point2D.Float orientation = new Point2D.Float(); 
+    protected Point2D.Float side = new Point2D.Float(); 
+    protected Point2D.Float velocity = new Point2D.Float(); 
+    protected Point2D.Float steering = new Point2D.Float(); 
+    protected float mass; 
+    protected float maxSpeed; 
+    protected float maxSteering; 
  
     // List of behaviours 
  
