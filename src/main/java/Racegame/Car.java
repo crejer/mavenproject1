@@ -6,6 +6,7 @@
 
 package Racegame;
 
+import static Racegame.Vehicle.length;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;

@@ -16,20 +16,22 @@ import java.util.ArrayList;
  */
 public abstract class Vehicle {
     
-    protected Point2D.Float position = new Point2D.Float(); 
-    protected Point2D.Float orientation = new Point2D.Float(); 
-    protected Point2D.Float side = new Point2D.Float(); 
-    protected Point2D.Float velocity = new Point2D.Float(); 
-    protected Point2D.Float steering = new Point2D.Float(); 
-    protected float mass; 
-    protected float maxSpeed; 
-    protected float maxSteering; 
+    // Member variables 
  
-    // List of behaviours 
+ protected Point2D.Float position = new Point2D.Float(); 
+ protected Point2D.Float orientation = new Point2D.Float(); 
+ protected Point2D.Float side = new Point2D.Float(); 
+ protected Point2D.Float velocity = new Point2D.Float(); 
+ protected Point2D.Float steering = new Point2D.Float(); 
+ protected float mass; 
+ protected float maxSpeed; 
+ protected float maxSteering; 
  
-    private ArrayList behaviours = new ArrayList(10); 
-
-   // Getters and setters 
+ // List of behaviours 
+ 
+ protected ArrayList behaviours = new ArrayList(10); 
+ 
+ // Getters and setters 
  
  public Point2D.Float getPosition() { return position; } 
  public void updatePosition(Point2D.Float p) { position.x = p.x; position.y = p.y; } 
@@ -61,7 +63,9 @@ public abstract class Vehicle {
  behaviours.add(b); 
  } 
  
- // easy calculations with vectors
+ 
+ // A few utility methods for working with vectors 
+ 
  static float length(Point2D.Float v) { 
  return (float)Math.sqrt((v.x * v.x) + (v.y * v.y)); 
  } 
@@ -72,7 +76,8 @@ public abstract class Vehicle {
  v.y *= newLength / l; 
  } 
  
- // Update the vehicle
+  
+ // Update this vehicle 
  
  public void update(float dt) { 
  for (int i = 0; i < behaviours.size(); i++) { 
@@ -88,11 +93,11 @@ public abstract class Vehicle {
  force.y *= maxSteering / l; 
  } 
  
-  // Newton's second law: steering force = mass * accelerataion 
+ // Newton's second law: steering force = mass * accelerataion 
  
  Point2D.Float acc = new Point2D.Float(force.x / mass, force.y / mass); 
  
-  // Update velocity vector using Euler's method 
+ // Update velocity vector using Euler's method 
  // and truncate its length to the maximum allowed 
  
  velocity.x += dt * acc.x; 
@@ -124,5 +129,4 @@ public abstract class Vehicle {
  public abstract void draw(Graphics2D g2); 
  
  public abstract boolean intersects(Vehicle v); 
- 
 }
