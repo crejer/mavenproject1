@@ -29,5 +29,9 @@ public class CarGame
         frame.setSize(2000, 2000); 
         frame.setVisible(true); 
         
+        // give focus to the race enviroment, needed for key events
+        s.requestFocusInWindow();
+        
+        
     }
 }
